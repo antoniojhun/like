@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+    <link ref="loading-bar.css">
+    <script src="loading-bar.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Sue+Ellen+Francisco&display=swap" rel="stylesheet">
+    <title>LIKE!</title>
+
+    <style>
+        .title{
+            font-family: 'Sue Ellen Francisco', cursive;
+            font-size:32px;
+        }
+        .nav-start{
+            background: red !important;
+            
+        }
+        .nav-button{
+            border-color: white;
+            color: white;
+        }
+        .centered{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .stats{
+            border: 3px solid black;
+            width: 100%;
+            height: 400px;
+            margin-top: 5%;
+        }
+
+        .ldBar-label{
+            text-align: center;
+        }
+
+        .ldBar::before{
+            font-size: 18px;
+            content: "Dreamer";
+            text-align: center;
+            margin: 22%;
+        }
+
+        .ldBar::after{
+            font-size: 18px;
+
+            content: "Realist";
+            text-align: center;
+            margin: 30%;
+        }
+
+        .ldBar-label::after{
+            content: "%";
+        }
+
+        #ldBar-dynamic-static::before{
+            font-size: 18px;
+            content: "Dynamic";
+            text-align: center;
+            margin: 30%;
+        }
+
+        #ldBar-dynamic-static::after{
+            font-size: 18px;
+            content: "Static";
+            text-align: center;
+            margin: 30%;
+        }
+
+        #ldBar-light-dark::before{
+            font-size: 18px;
+            content: "Light";
+            text-align: center;
+            margin: 30%;
+        }
+
+        #ldBar-light-dark::after{
+            font-size: 18px;
+            content: "Dark";
+            text-align: center;
+            margin: 35%;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div stlye="padding: 0 15%">
+        <nav class="nav-start navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-heart" style="font-size:32px;"></i> <span class="title">LIKE</span>
+                </a>
+                <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="nav-button btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+        </nav>
+    </div>
+<div class="container">
+    <h1 class="text-center"></h1>
+    <div class="d-flex justify-content-center">
+        <img src="https://picsum.photos/id/237/200/300" class="" style="width:250px; height: 250px;border-radius: 50%; object-fit: cover; overflow:hidden;"/>
+        
+    </div>
+    <div class="container">
+        <div class="row">
+            <h2 class="centered">JeGwanEee</h2>
+        </div>
+        <div class="row">
+            <h4 class="centered">1,432 reviews</h4>
+        </div>
+        
+        <div class="row stats d-flex justify-content-center">
+            <div class="col-md-4">
+                <div class="label-center" style="width:130px;height:130px" id="ldBar-dreamer-realist" data-img-size="200" data-preset="bubble" data-value="80"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="label-center" style="width:130px;height:130px" id="ldBar-dynamic-static" data-img-size="200" data-preset="bubble" data-value="50"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="label-center" style="width:130px;height:130px" id="ldBar-light-dark" data-img-size="200" data-preset="bubble" data-value="65"></div>
+            </div>
+        </div>
+    
+        </div>
+    </div>
+</div>
+<script>
+        var bar1 = new ldBar("#ldBar-dreamer-realist");
+        var bar1_2 = document.getElementById('ldBar-dreamer-realist').ldBar;
+        var bar2 = new ldBar("#ldBar-dynamic-static");
+        var bar2_2 = document.getElementById('ldBar-dynamic-static').ldBar;
+        var bar3 = new ldBar("#ldBar-light-dark");
+        var bar3_2 = document.getElementById('ldBar-light-dark').ldBar;
+        
+        bar1.set(0);
+        bar2.set(0);
+        bar3.set(0);
+        bar1_2.set(80);
+        bar2_2.set(45);
+        bar3_2.set(65);
+</script>
+</body>
+</html>
