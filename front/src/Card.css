@@ -16,21 +16,42 @@
   box-sizing: border-box;
   position: absolute;
   bottom:0;
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
   width:100%;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
   color:white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+.titleArea{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
 .title {
+  flex: 1 1 auto;
   font-weight: bold;
   font-size: 24px;
   margin-right: 5px;
 }
 .genre {
+  flex: 0 1 auto;
   font-size: 14px;
+}
+.ratingArea{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .rating {
   margin-right: 5px;
+  flex: 1 1 auto;
+}
+.comments{
+  flex: 0 1 auto;
+}
+.ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -5,16 +5,16 @@ function Card(props) {
   return (
     <div className="card" onClick={props.handleClickCard} style={{ backgroundImage: `url('${data.thumbnail}')` }}>
       <div className="details">
-        <div>
-          <span className="title">{data.title}</span>
-          <span className="genre">{data.genre}</span>
+        <div className="titleArea">
+          <span className="title ellipsis">{data.title}</span>
+          <span className="genre ellipsis">{data.genre}</span>
         </div>
-        <div>
-          <span className="rating">
+        <div className="ratingArea">
+          <span className="rating ellipsis">
             {"⭐".repeat(Math.floor(data.rating))}
             {data.rating}
           </span>
-          <span className="comments">
+          <span className="comments ellipsis">
             {"💬"}
             {parseInt(data.comments).toLocaleString()}
           </span>
