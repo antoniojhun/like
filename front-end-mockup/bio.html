@@ -29,7 +29,7 @@
             text-align: center;
         }
         .stats{
-            border: 3px solid black;
+            /* border: 1px solid black; */
             width: 100%;
             height: 400px;
             margin-top: 5%;
@@ -37,21 +37,20 @@
 
         .ldBar-label{
             text-align: center;
+            font-size: 3.2em;
         }
 
         .ldBar::before{
-            font-size: 18px;
+            font-size: 1.8rem;
             content: "Dreamer";
             text-align: center;
-            margin: 22%;
         }
 
         .ldBar::after{
-            font-size: 18px;
-
+            font-size: 1.8rem;
             content: "Realist";
             text-align: center;
-            margin: 30%;
+
         }
 
         .ldBar-label::after{
@@ -59,31 +58,27 @@
         }
 
         #ldBar-dynamic-static::before{
-            font-size: 18px;
+            font-size: 1.8rem;
             content: "Dynamic";
             text-align: center;
-            margin: 30%;
         }
 
         #ldBar-dynamic-static::after{
-            font-size: 18px;
+            font-size: 1.8rem;
             content: "Static";
             text-align: center;
-            margin: 30%;
         }
 
         #ldBar-light-dark::before{
-            font-size: 18px;
+            font-size: 1.8rem;
             content: "Light";
             text-align: center;
-            margin: 30%;
         }
 
         #ldBar-light-dark::after{
-            font-size: 18px;
+            font-size: 1.8rem;
             content: "Dark";
             text-align: center;
-            margin: 35%;
         }
 
         
@@ -107,8 +102,8 @@
     </div>
 <div class="container">
     <h1 class="text-center"></h1>
-    <div class="d-flex justify-content-center">
-        <img src="https://picsum.photos/id/237/200/300" class="" style="width:250px; height: 250px;border-radius: 50%; object-fit: cover; overflow:hidden;"/>
+    <div class="d-flex justify-content-center mt-5">
+        <img src="https://randomuser.me/api/portraits/lego/6.jpg" class="" style="width:250px; height: 250px;border-radius: 50%; border:solid black 1px; object-fit: cover; overflow:hidden;"/>
         
     </div>
     <div class="container">
@@ -119,21 +114,36 @@
             <h4 class="centered">1,432 reviews</h4>
         </div>
         
-        <div class="row stats d-flex justify-content-center">
-            <div class="col-md-4">
-                <div class="label-center" style="width:130px;height:130px" id="ldBar-dreamer-realist" data-img-size="200" data-preset="bubble" data-value="80"></div>
+        <div class="row stats d-flex justify-content-center mt-6">
+            <div class="col-lg-2 col-offset-3 mx-auto">
+                <div class="label-center text-center" style="width:180px;height:180px" id="ldBar-dreamer-realist" data-img-size="200" data-preset="bubble" data-value="80"></div>
             </div>
-            <div class="col-md-4">
-                <div class="label-center" style="width:130px;height:130px" id="ldBar-dynamic-static" data-img-size="200" data-preset="bubble" data-value="50"></div>
+            <div class="col-lg-2 mx-auto">
+                <div class="label-center text-center" style="width:180px;height:180px" id="ldBar-dynamic-static" data-img-size="200" data-preset="bubble" data-value="50"></div>
             </div>
-            <div class="col-md-4">
-                <div class="label-center" style="width:130px;height:130px" id="ldBar-light-dark" data-img-size="200" data-preset="bubble" data-value="65"></div>
+            <div class="col-lg-2 col-offset-3 mx-auto">
+                <div class="label-center text-center" style="width:180px;height:180px" id="ldBar-light-dark" data-img-size="200" data-preset="bubble" data-value="65"></div>
             </div>
         </div>
     
         </div>
     </div>
 </div>
+<button onClick="openShare()" class="btn btn-primary mt-3 mb-3" style="display: block; margin:0 auto;">Share</button>
+
+
+<web-social-share show="false">
+        <ion-icon name="logo-twitter" ariaLabel="Twitter" slot="twitter"
+                  style="color: #00aced;">
+        </ion-icon>
+        <ion-icon name="mail" slot="email" ariaLabel="Email" 
+                  style="color: #ff8ea3;">
+        </ion-icon>
+        <ion-icon name="logo-whatsapp" ariaLabel="WhatsApp"
+                  slot="whatsapp"
+                  style="color: #25D366;">
+         </ion-icon>
+      </web-social-share>
 <script>
         var bar1 = new ldBar("#ldBar-dreamer-realist");
         var bar1_2 = document.getElementById('ldBar-dreamer-realist').ldBar;
@@ -148,6 +158,73 @@
         bar1_2.set(80);
         bar2_2.set(45);
         bar3_2.set(65);
+</script>
+
+<script type="module"
+    src="https://unpkg.com/web-social-share@latest/dist/websocialshare/websocialshare.esm.js"></script>
+<script nomodule 
+    src="https://unpkg.com/web-social-share@latest/dist/websocialshare/websocialshare.js"></script>
+<script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+
+<script>
+    openShare = async () => {
+        if(navigator && navigator.share){
+            await shareNative();
+        } else {
+            await shareFallback();
+        }
+    }
+
+    function shareNative(){
+        return new Promise(async (resolve)=>{
+            const shareUrl = `${window.location.protocolo}//${window.location.host}`;
+            await navigator.share({
+                text: 'My Like Bio!',
+                url: shareUrl,
+            });
+            resolve();
+        });
+    }
+
+    function shareFallback() {
+  return new Promise(async (resolve) => {
+    const webSocialShare =
+          document.querySelector('web-social-share');
+
+    if (!webSocialShare || !window) {
+      return;
+    }
+
+    const shareUrl =
+          `${window.location.protocol}//${window.location.host}`;
+
+    const share = {
+      displayNames: true,
+      config: [{
+        twitter: {
+          socialShareUrl: shareUrl,
+          socialSharePopupWidth: 500,
+          socialSharePopupHeight: 400
+        }
+      },{
+        email: {
+          socialShareBody: shareUrl
+        }
+      }, {
+        whatsapp: {
+          socialShareUrl: shareUrl
+        }
+      }]
+    };
+    // The configuration, set the share options
+    webSocialShare.share = share;
+    // Show/open the share actions
+    webSocialShare.show = true;
+
+    resolve();
+  });
+}
+
 </script>
 </body>
 </html>
