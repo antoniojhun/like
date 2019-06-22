@@ -1,5 +1,12 @@
+
+import React, {Component} from 'react';
+import logo from './logo.svg';
+import Nav from './Nav';
+import Nav2 from './Nav2';
+import './App.css';
 import React from "react";
 import Card from "./Card";
+
 function App() {
   let datas = [
     {
@@ -27,7 +34,8 @@ function App() {
     }
   ];
   return (
-    <div>
+    <div className="App">
+      <Nav/>
       {
         datas.map((data,i)=><Card key={i} data={data} handleClickCard={()=>alert(data.title)}/>)
       }
