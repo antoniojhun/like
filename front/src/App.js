@@ -1,5 +1,8 @@
 import React from "react";
 import Card from "./Card";
+import Nav from "./Nav";
+import Mbti from "./Mbti";
+
 function App() {
   let datas = [
     {
@@ -28,9 +31,11 @@ function App() {
   ];
   return (
     <div>
+      <Nav></Nav>
       {
         datas.map((data,i)=><Card key={i} data={data} handleClickCard={()=>alert(data.title)}/>)
       }
+      <Mbti></Mbti>
     </div>
   );
 }
