@@ -1,10 +1,6 @@
 
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import Nav from './Nav';
-import Nav2 from './Nav2';
 import './App.css';
-import React from "react";
 import Card from "./Card";
 import Nav from "./Nav";
 import Mbti from "./Mbti";
