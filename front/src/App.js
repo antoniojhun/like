@@ -6,11 +6,8 @@ import Nav2 from './Nav2';
 import './App.css';
 import React from "react";
 import Card from "./Card";
-<<<<<<< HEAD
 import Nav from "./Nav";
 import Mbti from "./Mbti";
-=======
->>>>>>> master
 
 function App() {
   let datas = [
