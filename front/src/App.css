@@ -4,3 +4,8 @@
     font-family: 'Open-Sans', sans-serif;
     box-sizing: border-box;
 }
+
+:root{
+    --primary_dark: #b4174b;
+    --primary: #e91e63;
+}

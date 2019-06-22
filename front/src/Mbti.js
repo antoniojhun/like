@@ -39,8 +39,8 @@ class Mbti extends Component {
             width: '30vw',
         };
         const circleContainerStyle = {
-            width:'100%',
-            height: '100%',
+            width:'20vw',
+            height: '20vw',
             display: 'inline-block',
         };
         return (
@@ -52,7 +52,7 @@ class Mbti extends Component {
                     </div>
                 </div>
                 <div className="Dynamic">
-                    <h3>Dreamer Percentage: {dynamic_percent}%</h3>
+                    <h3>Dynamic Percentage: {dynamic_percent}%</h3>
                     <div style={circleContainerStyle}>
                         <Circle percent={dynamic_percent} strokeWidth="6" strokeLinecap="round" strokeColor={dynamic_color} />
                     </div>
