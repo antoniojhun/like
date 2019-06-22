@@ -1,11 +1,9 @@
 
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import Nav from './Nav';
-import Nav2 from './Nav2';
 import './App.css';
-import React from "react";
 import Card from "./Card";
+import Nav from "./Nav";
+import Mbti from "./Mbti";
 
 function App() {
   let datas = [
@@ -34,11 +32,12 @@ function App() {
     }
   ];
   return (
-    <div className="App">
-      <Nav/>
+    <div>
+      <Nav></Nav>
       {
         datas.map((data,i)=><Card key={i} data={data} handleClickCard={()=>alert(data.title)}/>)
       }
+      <Mbti></Mbti>
     </div>
   );
 }

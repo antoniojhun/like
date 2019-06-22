@@ -1,5 +1,5 @@
 .nav{
-    background-color: red;
+    background-color: #b4174b;
     color: white;
     font-size: 1.8rem;
     font-family: "Oswald";
@@ -9,6 +9,26 @@
     align-items: center;
     box-sizing: border-box;
     padding: 15px;
+}
+
+
+@keyframes beating{
+    0% {
+        transform: scale(.8);
+    }
+    25% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(.8);
+    }
+    75% {
+        transform: scale(1);
+    }
+}
+
+.logo:hover{
+    animation: beating 1s;
 }
 
 input{

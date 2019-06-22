@@ -20,9 +20,12 @@ class Nav extends React.Component{
             return(
             <div>
                 <nav className="nav">
-                    <div className="logo"><i className="fa fa-heart"></i> Like!</div>
+                    <div className="logoDiv">
+                        <div className="logo"><i className="fa fa-heart"></i> Like!</div>
+                    </div>
                     <input placeholder="Type here.." className="search"></input>
                     <div className="account" onClick={showInfo}><i className="fa fa-bars"></i></div>
+                
                 </nav>
                 <div id="accountInfo" className="accountInfo">
                     <h2>
